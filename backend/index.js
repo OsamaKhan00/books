@@ -3,6 +3,7 @@ import mysql from "mysql"
 
 
 const app = express()                   // connect this to line 13
+pp.use(cors());
 
 const db = mysql.createConnection({
     host: "localhost",
@@ -11,7 +12,7 @@ const db = mysql.createConnection({
     database: "test"
 })
 
-app.use(express.json()) //allows us to use express to send json file using any clie3nt. 
+app.use(express.json()) //allows us to use express to send json file using any clie3nt. connects
 
 
 app.get("/", (req,res)=>{                   // API requests using express server......(This is a request here)

@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// I will be using reacr router dom to load up pages. books pages to show books and a add pages to add more books. 
+
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Books from "./pages/Books";
+import Add from "./pages/Add";
+import Update from "./pages/Update";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Books />} />
+          <Route path="/add" element={<Add />} />
+          <Route path="/update/:id" element={<Update />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
