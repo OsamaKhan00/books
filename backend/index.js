@@ -1,9 +1,10 @@
 import express from "express"
 import mysql from "mysql"
+import cors from "cors"
 
 
 const app = express()                   // connect this to line 13
-pp.use(cors());
+app.use(cors())
 
 const db = mysql.createConnection({
     host: "localhost",
@@ -36,11 +37,12 @@ app.get("/books", (req,res)=>{
 
         // if we are taking data from the user and updating it in the databse we can use the following 
 app.post("/books", (req,res)=>{
-    const q = "INSERT INTO books (`titlle`, `desc`,`cover`) VALUES (?)"
+    const q = "INSERT INTO books (`titlle`, `desc`, `price`, `cover`) VALUES (?)"
     const values = [
         req.body.tittle,
         req.body.desc,
-        req.body.cover
+        req.body.cover,
+        req.body.price
     ] 
 
     db.query(q, [values], (err,data)=>{
