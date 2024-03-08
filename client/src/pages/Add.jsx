@@ -1,7 +1,6 @@
-import React, { useState } from 'react'; // Import useState from 'react'
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from 'react-router-dom'
-import axios from 'axios'; // Import axios
-
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Add = () => {
     const [book, setBook] = useState({ 
@@ -20,7 +19,7 @@ const Add = () => {
     const handleClick = async e => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:8800/books", book); // Fix the URL format
+            await axios.post("http://localhost:8800/books", book);
             navigate("/");
         } catch(err) {
             console.log(err);
