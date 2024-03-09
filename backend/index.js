@@ -46,17 +46,18 @@ app.post("/books", (req, res) => {
 
 app.delete("/books/:id", (req, res) => {
   const bookId = req.params.id;
-  const q = " DELETE FROM books WHERE id = ? ";
+  const q = "DELETE FROM books WHERE id = ? ";
 
   db.query(q, [bookId], (err, data) => {
     if (err) return res.status(500).send(err);
     return res.json(data);
   });
-});
+}); // Add closing bracket and semicolon here
 
 app.put("/books/:id", (req, res) => {
   const bookId = req.params.id;
-  const q = "UPDATE books SET `title`= ?, `desc`= ?, `price`= ?, `cover`= ? WHERE id = ?";
+  const q =
+    "UPDATE books SET `title`= ?, `desc`= ?, `price`= ?, `cover`= ? WHERE id = ?";
 
   const values = [
     req.body.title,
@@ -67,7 +68,7 @@ app.put("/books/:id", (req, res) => {
 
   db.query(q, [...values, bookId], (err, data) => {
     if (err) return res.status(500).send(err);
-    return res.json(data);
+    return res.json("Book has been updated successfully.");
   });
 });
 
