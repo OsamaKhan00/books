@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Add = () => {
-    const [book, setBook] = useState({ 
+    const [book,setBook] = useState({ 
         title: "",
         desc: "",
         price: null,
